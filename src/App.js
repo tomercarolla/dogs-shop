@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+const App = () => {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const categories = [
+        {
+            id: 1,
+            title: 'Toys',
+            image: '',
+        },
+        {
+            id: 2,
+            title: 'Food',
+            image: '',
+        },
+        {
+            id: 3,
+            title: 'Snacks',
+            image: '',
+        },
+        {
+            id: 4,
+            title: 'Clothes',
+            image: '',
+        },
+        {
+            id: 5,
+            title: 'Accessories',
+            image: '',
+        },
+    ];
+
+    return (
+        <div className="categories-container">
+            {
+                categories.map((category) => {
+                    return (
+                        <div key={category.id} className="category-container">
+                            <div className="background-container"></div>
+                            <div className="category-title">
+                                <h2>{category.title}</h2>
+                                <p>Shop now</p>
+                            </div>
+                        </div>
+                    )
+                })
+            }
+        </div>
+    );
 }
 
 export default App;
