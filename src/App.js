@@ -1,49 +1,36 @@
-const App = () => {
+import Categories from "./components/categories/categories.component";
 
+const App = () => {
     const categories = [
         {
             id: 1,
             title: 'Toys',
-            image: '',
+            imageUrl: 'https://images.dog.ceo/breeds/pembroke/n02113023_1571.jpg',
         },
         {
             id: 2,
             title: 'Food',
-            image: '',
+            imageUrl: 'https://images.dog.ceo/breeds/entlebucher/n02108000_811.jpg',
         },
         {
             id: 3,
             title: 'Snacks',
-            image: '',
+            imageUrl: 'https://images.dog.ceo/breeds/malinois/n02105162_6501.jpg',
         },
         {
             id: 4,
             title: 'Clothes',
-            image: '',
+            imageUrl: 'https://images.dog.ceo/breeds/clumber/n02101556_823.jpg',
         },
         {
             id: 5,
             title: 'Accessories',
-            image: '',
+            imageUrl: 'https://images.dog.ceo/breeds/appenzeller/n02107908_2151.jpg',
         },
     ];
 
     return (
-        <div className="categories-container">
-            {
-                categories.map((category) => {
-                    return (
-                        <div key={category.id} className="category-container">
-                            <div className="background-container"></div>
-                            <div className="category-title">
-                                <h2>{category.title}</h2>
-                                <p>Shop now</p>
-                            </div>
-                        </div>
-                    )
-                })
-            }
-        </div>
+        <Categories categories={categories} />
     );
 }
 
