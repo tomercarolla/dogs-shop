@@ -5,6 +5,8 @@ import {ReactComponent as DogLogo} from './../../assets/crown.svg';
 import './navigation.styles.scss';
 import {UserContext} from "../../context/user.context";
 import {signOutUSer} from "../../utils/firebase/firebase.utils";
+import CartIcon from "../../components/cart-icon/cart-icon.component";
+import CartDropdownComponent from "../../components/cart-dropdown/cart-dropdown.component";
 
 const Navigation = () => {
 
@@ -29,7 +31,9 @@ const Navigation = () => {
                             <Link className="nav-link" to="/auth">SIGN IN</Link>
                         )
                     }
+                    <CartIcon />
                 </div>
+                <CartDropdownComponent/>
             </div>
             <Outlet/>
         </Fragment>
