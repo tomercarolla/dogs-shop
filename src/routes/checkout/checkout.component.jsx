@@ -1,49 +1,42 @@
 import './checkout.styles.scss';
 import {useContext} from "react";
 import {CartContext} from "../../context/cart.context";
+import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 
 const Checkout = () => {
 
     const {
         cartItems,
-        totalAmount,
-        addItemToCart,
-        removeQuantity,
-        removeProductFromCart
+        totalAmount
     } = useContext(CartContext);
 
     return (
-        <div style={{display: "flex"}}>
+        <div className="checkout-container">
+            <div className="checkout-header">
+                <div className="header-block">
+                    Product
+                </div>
+                <div className="header-block">
+                    Description
+                </div>
+                <div className="header-block">
+                    Quantity
+                </div>
+                <div className="header-block">
+                    Price
+                </div>
+                <div className="header-block">
+                    Remove
+                </div>
+            </div>
             {
                 cartItems.map(product => {
-                    const {id, imageUrl, name, quantity, price} = product;
-
-                    const addProductToCart = () => addItemToCart(product);
-
-                    const removeQuantityFromProduct = () => removeQuantity(product);
-
-                    const removeProduct = () => removeProductFromCart(product);
-
                     return (
-                        <div key={id}>
-                            <img src={imageUrl} alt=""/>
-                            <div>{name}</div>
-                            <div style={{display: "flex", gap: '8px'}}>
-                                <div style={{cursor: "pointer"}} className="remove"
-                                     onClick={removeQuantityFromProduct}> &#x3c; </div>
-                                <span>{quantity}</span>
-                                <div style={{cursor: "pointer"}} className="add"
-                                     onClick={addProductToCart}> &#x3e; </div>
-                            </div>
-                            <div>
-                                {price}
-                            </div>
-                            <div style={{cursor: "pointer"}} onClick={removeProduct}>X</div>
-                        </div>
+                        <CheckoutItem key={product.id} product={product}/>
                     )
                 })
             }
-            <div>total: {totalAmount}</div>
+            <div className="total">total: {totalAmount}</div>
         </div>
     )
 }
