@@ -4,7 +4,13 @@ import {CartContext} from "../../context/cart.context";
 
 const Checkout = () => {
 
-    const {cartItems, addItemToCart, removeQuantity, removeProductFromCart} = useContext(CartContext);
+    const {
+        cartItems,
+        totalAmount,
+        addItemToCart,
+        removeQuantity,
+        removeProductFromCart
+    } = useContext(CartContext);
 
     return (
         <div style={{display: "flex"}}>
@@ -37,6 +43,7 @@ const Checkout = () => {
                     )
                 })
             }
+            <div>total: {totalAmount}</div>
         </div>
     )
 }
