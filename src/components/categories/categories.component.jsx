@@ -1,9 +1,9 @@
-import './categories.styles.scss';
 import CategoryItem from "../category-item/category-item.component";
+import {CategoriesContainerStyles} from "./categories.styles";
 
 const Categories = ({categories}) => {
     return (
-        <div className="categories-container">
+        <CategoriesContainerStyles>
             {
                 categories.map((category) => {
                     return (
@@ -11,7 +11,7 @@ const Categories = ({categories}) => {
                     )
                 })
             }
-        </div>
+        </CategoriesContainerStyles>
     );
 }
 
