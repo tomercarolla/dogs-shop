@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const BackgroundImage = styled.div`
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-image: ${({imageUrl}) => `url(${imageUrl})`};
+`
+
 export const CategoryItemContainerStyles = styled.div`
   min-width: 30%;
   height: 240px;
@@ -14,7 +22,7 @@ export const CategoryItemContainerStyles = styled.div`
   &:hover {
     cursor: pointer;
 
-    .background-container {
+    ${BackgroundImage} {
       transform: scale(1.1);
       transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
@@ -37,10 +45,7 @@ export const CategoryItemContainerStyles = styled.div`
   }
 
   .background-container {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
+    
   }
 
   .category-title {
