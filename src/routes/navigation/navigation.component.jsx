@@ -3,15 +3,15 @@ import {Fragment, useContext} from "react";
 import {ReactComponent as DogLogo} from './../../assets/crown.svg';
 
 import {LogoContainer, NavigationContainer, NavLink, NavsLinksContainer} from './navigation.styles';
-import {UserContext} from "../../context/user.context";
 import {signOutUSer} from "../../utils/firebase/firebase.utils";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdownComponent from "../../components/cart-dropdown/cart-dropdown.component";
 import {CartContext} from "../../context/cart.context";
+import {useSelector} from "react-redux";
+import {selectCurrentUser} from "../../store/user/user.selector";
 
 const Navigation = () => {
-
-    const {currentUser} = useContext(UserContext);
+    const currentUser = useSelector(selectCurrentUser);
     const {isCartOpen} = useContext(CartContext);
 
     const signOutHandler = async () => {
