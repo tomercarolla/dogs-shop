@@ -7,6 +7,7 @@ import FormInput from "../form-input/form-input.component.jsx";
 
 import Button, {Color} from "../button/button.component";
 import {SignInFormStyles} from "./sign-in-form.styles";
+import {useNavigate} from "react-router-dom";
 
 const defaultFormFields = {
     email: '',
@@ -14,6 +15,8 @@ const defaultFormFields = {
 }
 
 const SignInForm = () => {
+
+    const navigate = useNavigate();
 
     const [formFields, setFormFields] = useState(defaultFormFields);
     const {email, password} = formFields;
@@ -23,6 +26,7 @@ const SignInForm = () => {
 
         try {
             await signInAuthUserWithEmailAndPassword(email, password);
+            navigate('/');
             resetFormFields();
         } catch (error) {
             switch (error.code) {
@@ -63,6 +67,7 @@ const SignInForm = () => {
 
     const signInWithGoogle = async () => {
         await signInWithGooglePopup();
+        navigate('/');
     }
 
     return (
