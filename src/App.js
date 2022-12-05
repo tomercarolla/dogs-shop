@@ -21,6 +21,8 @@ const App = () => {
         })
     }, [dispatch]);
 
+    //cart here
+
     return (
         <Routes>
             <Route path="/" element={<Navigation />}>
